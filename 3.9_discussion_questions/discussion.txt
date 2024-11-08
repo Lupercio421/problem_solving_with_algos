@@ -1,0 +1,49 @@
+1. Convert the following values to binary using “divide by 2.” Show the stack of remainders.
+- 17
+    - 17 // 2 = 8 remainder 1
+        8 // 2 = 4 remainder 0
+        4 // 2 = 2 remainder 0
+        2 // 2 = 1 remainder 0
+        1 // 2 = 0 remainder 1
+
+- 45
+    - 45 // 2 = 22 remainder 1
+        22 // 2 = 11 remainder 0
+        11 // 2 = 5 remainder 1
+        5 // 2 = 2 remainder 1
+        2 // 2 = 1 remainder 0
+        1 // 2 = 0 remainder 1 
+    
+- 96
+    - 96 // 2 = 48 remainder 0
+        48 // 2 = 24 remainder 0
+        24 // 2 = 12 remainder 0
+        12 // 2 = 6 remainder 0
+        6 // 2 = 3 remainder 0
+        3 // 2 = 1 remainder 1
+        1 // 2 = 0 remainder 1
+
+6. The alternative implementation of the Queue ADT is to use a list such that the rear of the queue is at the end of the list. What would this mean for Big-O performance?
+A: One option would be a linked list. Adding an element to the linked list would mean a O(1) performance. While removing a element would perform at O(N), as the remaining N elements would need to be shifted one position. 
+
+7. What is the result of carrying out both steps of the linked list add method in reverse order? What kind of reference results? What types of problems may result?
+
+8. Explain how the linked list remove method works when the item to be removed is in the last node.
+A: Set the pointer of the second to last node to null?
+- If the first node is null (emtpy linkedlist) or if there is only one node (single node in list), then they return null
+    - if headNode == null then return null
+    - if headNode.nextNode == null then free
+    - head and return null
+- Create an extra space, secondLast, and traverse the linked list until the second last node
+    - while secondLast.nextNode.nextNode != null:
+        secondLast = secondLast.nextNode
+- delete the last node, i.e., the next node of the second last node
+    delete(secondLast.nextNode), and set the value of the next second-last node to null
+(https://www.geeksforgeeks.org/remove-last-node-of-the-linked-list/#)
+
+9. Explain how the remove method works when the item is in the only node in the linked list.
+If the head of the list is the only element in the list,
+    - that means that head.next is null
+    - create a method that "free's" the list    
+        free(my_list):
+            my_list = NULL;

@@ -1,0 +1,3 @@
+It is very very important to not that the list class itself does not contain any node objects. Instead it contains a single reference to only the first node in the linked structure. 
+
+Traversal refers to the process of systematicalyy visiting each node. 
