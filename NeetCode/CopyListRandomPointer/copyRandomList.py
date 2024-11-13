@@ -14,20 +14,16 @@ class Solution:
         curr = head
         while curr:
             copy = Node(curr.val) #deep copy of the node
-            oldToCopy[curr] = copy
-            curr = curr.next #iterate until we reach None
-        
+            curr = oldToCopy[copy]
+            curr = curr.next
+            
         curr = head
         while curr:
             copy = oldToCopy[curr]
-            print("aaaaa " + str(copy))
-            # required to set the pointers to ensure a full deep copy
-            copy.next = oldToCopy[curr.next]
-            copy.random = oldToCopy[curr.random]
+            copy.next = oldToCopy.get(curr.next)
+            copy.random = oldToCopy.get(curr.random)
             curr = curr.next
-
-        return oldToCopy[head]
-    
+        return oldToCopy.get(head)
 solution = Solution()
 
 # Create individual ListNodes
@@ -48,4 +44,3 @@ node4.random = 1
 
 head = node1
 solution.copyRandomList(head=head)
-# [[7,null],[13,0],[11,4],[10,2],[1,0]]
