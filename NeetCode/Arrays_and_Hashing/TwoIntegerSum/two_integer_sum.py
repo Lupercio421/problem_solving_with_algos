@@ -7,6 +7,7 @@ class Solution:
             print("This is n: " + str(n))
             diff = target - n
             if diff in prevMap:
+                print("Value of prevMap[diff]:", prevMap[diff])
                 return [prevMap[diff], i]
             prevMap[n] = i
         return
