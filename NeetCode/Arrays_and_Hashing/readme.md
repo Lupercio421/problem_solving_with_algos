@@ -4,7 +4,7 @@
 A `HashMap` (or hash table) is a data structure that stores key-value pairs and allows for fast retrieval, insertion, and deletion of values based on their keys. It uses a hash function to convert keys into indices in an underlying array, making operations efficient (typically `O(1)` time on average). Hashmaps are `NOT` ordered, it is not possible to traverse the keys of a hashmap in any particular order.
 
 ### How HashMap Works
-- **Hash Function:** Converts a key into an array index.
+- **Hash Function:** Converts a key into an array index. A hashable object is one whose hash values, returned by a `hash()` function, never changes in it's lifetime.
 - **Buckets:** Each index points to a bucket that stores key-value pairs. Collisions (multiple keys mapping to the same index) are handled by chaining (linked lists) or open addressing.
 - **Operations:**
   - **Insert:** Place the key-value pair in the bucket at the hashed index.
