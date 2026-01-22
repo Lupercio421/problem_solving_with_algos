@@ -1,10 +1,10 @@
-# Valid Anagram - Python 3 - dictionary
+# Valid Anagram - Python 3 - hash map
 
 `Anagram` - a string that contains the exact same characters as another string, but the order of the characters can be different.
 
 ## Intuition
 
-My first thoughts were to place the individual letters of the strings into a dictionary. Where values of the keys are the counts of letters in the strings. If the frequency of the distinct letters in each string match, then we have an anagram.
+My first thoughts were to place the individual letters of the strings into a hash map. Where values of the keys are the counts of letters in the strings. If the frequency of the distinct letters in each string match, then we have an anagram.
 
 ## Approach
 
@@ -17,7 +17,7 @@ My first thoughts were to place the individual letters of the strings into a dic
 ## Complexity
 
 - Time complexity: O(s + t). `s` being the length of string `s`, and `t` being the length of string `t`
-- Memory: O(s + t)
+- Memory: O(1), we will have at most 26 distinct characters.
 
 ## Code
 
