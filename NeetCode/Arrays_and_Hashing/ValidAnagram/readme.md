@@ -16,12 +16,12 @@ My first thoughts were to place the individual letters of the strings into a dic
 
 ## Complexity
 
-Time complexity: O(s + t). `s` being the length of string `s`, and `t` being the length of string `t`
-Memory: O(s + t)
+- Time complexity: O(s + t). `s` being the length of string `s`, and `t` being the length of string `t`
+- Memory: O(s + t)
 
 ## Code
 
-\`\`\`python
+```python
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         
@@ -39,4 +39,4 @@ class Solution:
                 return False
 
         return True
-\`\`\`
+```

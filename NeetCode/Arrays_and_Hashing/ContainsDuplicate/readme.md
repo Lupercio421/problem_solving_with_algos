@@ -10,12 +10,12 @@ Instantiate a set(). Iterate through the nums list. If the number is not in the 
 
 ## Complexity
 
-Time complexity: O(n), as we iterate at most through the length of nums.
-Space complexity: O(n), as we created a set() object with at most length of n.
+- Time complexity: O(n), as we iterate at most through the length of nums.
+- Space complexity: O(n), as we created a set() object with at most length of n.
 
 ## Code
 
-```
+```python
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         resultSet = set()
