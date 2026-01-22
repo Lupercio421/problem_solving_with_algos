@@ -6,7 +6,7 @@ My first thoughts were to instantiate a dictionary. The dictionary will hold the
 
 ## Approach
 
-Instantiate a set(). Iterate through the nums list. If the number is not in the set(), add the number to the set. If the value is in the set(). Immediately return False, we have encountered a duplicate value. If after all numbers have been compared to the set(), then we have no duplicates, return True.
+Instantiate a `set()`. Iterate through the nums list. If the number is not in the `set()`, add the number to the set. If the value is in the `set()`, immediately return `True`, we have encountered a duplicate value. If after all numbers have been compared to the `set()`, then we have no duplicates, return `False`.
 
 ## Complexity
 
