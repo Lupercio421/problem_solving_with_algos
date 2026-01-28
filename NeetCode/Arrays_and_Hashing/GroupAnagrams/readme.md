@@ -8,7 +8,8 @@
 ## Algorithm
 
 - Use python's `defaultdict(list)
-- FOr every string in `strs`, a `count` aray will hold all potential 0-26 values of the `strs[i]` word
+- For every string in `strs`, a `count` aray will hold all potential 0-26 values of the `strs[i]` word
+- For every character in the string, the count[] array will be populated at the index of `ord(c) ord
 
 ## Implementation
 
@@ -27,4 +28,29 @@ class Solution:
             res[tuple(count)].append(s)
 
         return list(res.values())
+```
+
+```java
+
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        
+        Map<String, List<String>> ans = new HashMap<>();
+
+        for (String s : strs) {
+            int[] count = new int[26];
+            for (char c : s.toCharArray()){
+                count[c -'a']++;
+            }
+
+            String key = Arrays.toString(count);
+            if (!ans.containsKey(key)){
+                ans.put(key, new ArrayList<>());
+            }
+
+            ans.get(key).add(s);
+            }
+            return new ArrayList<>(ans.values());
+    }
+}
 ```
