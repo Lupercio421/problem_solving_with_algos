@@ -9,7 +9,9 @@
 
 - Use python's `defaultdict(list)
 - For every string in `strs`, a `count` aray will hold all potential 0-26 values of the `strs[i]` word
-- For every character in the string, the count[] array will be populated at the index of `ord(c) ord
+- For every character in the string, the value at the index of `ord(c) - ord("a")` will be increased by 1.
+- The `res` dictionary will hold the `count` array as a `tuple`, and the value of this key will be the string `s`.
+- The `res` keys holds the `count` array as tuples, with it's values being the actual word from `strs`. They are grouped together into an array. The `res.values()` is returned as a `list`
 
 ## Implementation
 
