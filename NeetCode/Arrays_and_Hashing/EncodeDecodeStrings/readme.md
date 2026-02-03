@@ -26,7 +26,7 @@
 3. Initialize `j = i` to mirror the `i` pointer and move `j` forward until it reaches the `#` character. W
 4. Convert the substring `s[i:j]` into an integer `length`
 5. Slice the `s` from `j + 1` up until `j + 1 + length`, this is the actual word. Append this word to the `res` array
-6. Updated `i` to be the end of this appended word, i.e, `i = j + 1 + length`
+6. Update `i` to be the end of this appended word, i.e, `i = j + 1 + length`
 7. Return `res`
 
 ## Time and Space Complexity
