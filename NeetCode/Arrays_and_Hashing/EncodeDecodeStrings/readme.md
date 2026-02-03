@@ -15,7 +15,7 @@
 - Increase `j` count until a `#` is reached.
 - `length` will hold the `int` value of each decoded word in the long string
 - `[]` will be appended with current decoded word
-- Updated your pointers
+- Update your pointers
 
 ## Algorithm
 
