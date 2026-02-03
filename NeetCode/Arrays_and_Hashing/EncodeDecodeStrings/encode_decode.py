@@ -1,3 +1,5 @@
+from typing import List
+
 class Codec:
     def encode(self, strs: List[str]) -> str:
         """Encodes a list of strings to a single string. Using the pound symbol as the delimeter
