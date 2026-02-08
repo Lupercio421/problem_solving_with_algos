@@ -9,13 +9,16 @@ The question states that you can remove `at most` one character from the string 
 ## Approach
 
 - Create a `l` pointer starting at `index = 0`, and a `r` pointer starting at `index = len(s) - 1` of the `s` string
-- Step 2
-- Step 3
+- While `l` is less than `r`, do a boolean check to check if the characters are not the same, indicating a invalid palindrome
+- `skipL` will be a substring of `s` from `l+1` up until but not including `r+1`. `skipR` will be a substring of `s` from `l` up until `r` (non-inclusive)
+- Becuase we have reached the `at most` one character deletion, we perform a string equality on `skipL` and it's reverse. We check the same for `skipR`. If both fail, then the strings are not palindromes, and we return `false`
+- The `l` pointer is increased, and the `r` pointer is decreased after the check on the `s[l] != s[r]` is `false`
+- Return `true` if and when the `l` and `r` pointer meet, indicating a valid palindrome
 
 ## Complexity
 
-- Time complexity: O(?)
-- Space complexity: O(?)
+- Time complexity: O(n)
+- Space complexity: O(n)
 
 ## Code
 
@@ -68,5 +71,3 @@ class Solution {
 ```
 
 ## Notes
-
-[Any additional notes or alternative approaches]
