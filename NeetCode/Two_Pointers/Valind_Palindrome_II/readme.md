@@ -22,6 +22,8 @@ The question states that you can remove `at most` one character from the string 
 
 ## Code
 
+### Python
+
 ```python
 class Solution:
     def validPalindrome(self, s: str) -> bool:
@@ -38,6 +40,8 @@ class Solution:
         return True
         
 ```
+
+### Java
 
 ```java
 class Solution {
