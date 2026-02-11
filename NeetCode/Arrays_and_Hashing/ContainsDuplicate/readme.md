@@ -15,6 +15,8 @@ Instantiate a `set()`. Iterate through the nums list. If the number is not in th
 
 ## Code
 
+### Python
+
 ```python
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
@@ -25,4 +27,23 @@ class Solution:
             else:
                 return True
         return False
+```
+
+### Java
+
+```java
+class Solution {
+    public boolean hasDuplicate(int[] nums) {
+        Set<Integer> seen = new HashSet<>();
+        for (int num:nums) {
+            if (seen.contains(num)) {
+                return true;
+            }
+            else {
+                seen.add(num);
+            }
+        }
+        return false;
+    }
+}
 ```
