@@ -4,20 +4,32 @@ Given an integer array `nums`, return an array output where `output[i]` is the p
 
 ## Intuition
 
-[Explain your initial approach and thought process]
+Without creating extra `prefix` and `suffix` arrays, we can reuse the result arrray and build the answer in two passes.
 
-## Approach
+- In the `first pass`, fill the `res[i]` with the product of all elements to the left of `i` (this is the `prefix` product).
+- In the `second pass`, multiply each `res[i]` with the product of all elements to the right of `i` (this is the `postfix` product).
 
-[Detailed steps of your solution strategy]
+By maintaining two running values - `prefix` and `postfix` - we avoid the need for separate `pref` and `suff` arrays.
 
-- Step 1
-- Step 2
-- Step 3
+## Approach/Algorithm
+
+- Step 1: Initialize the result array `res` with all values set to 1. Or Initialize an empty array of length `nums.length`
+- Step 2: Create a variable `prefix = 1`
+- Step 3: First pass (left to right):
+  - For each index `i`:
+    - Set `res[i] = prefix` (the product of all elements to the left).
+    - Update `prefix *= nums[i]`
+- Step 4: Create a variable `postfix = 1`
+- Step 5: Second pass (right to left):
+  - For each index `i`:
+    - Multiply `res[i]` by the `postfix` value
+    - Update `postfix` by mutiplying itself with `nums[i]`. I.e: `postfix *= nums[i]`
+- Step 6: return `res`
 
 ## Complexity
 
-- Time complexity: O(?)
-- Space complexity: O(?)
+- Time complexity: O(N)
+- Space complexity: O(1) extra space. O(N) space for the output array.
 
 ## Code
 
@@ -66,5 +78,3 @@ class Solution {
 ```
 
 ## Notes
-
-[Any additional notes or alternative approaches]
