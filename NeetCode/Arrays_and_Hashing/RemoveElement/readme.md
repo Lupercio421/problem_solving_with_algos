@@ -22,7 +22,7 @@ For the optimal solution, it would be best to use two pointers. Where the `L` po
 - Step 1: Initialize `i = 0` as the current position and `n` as the effective length of the array.
 
 - Step 2: While `i < n`
-  - If `nums[i]` is the `val`, decrement the `n` value by 1. 
+  - If `nums[i]` is the `val`, decrement the `n` value by 1.
   - Swap `nums[i]` with `nums[n]`
   - Else, increment `i` by 1
 - Step 3: return n
