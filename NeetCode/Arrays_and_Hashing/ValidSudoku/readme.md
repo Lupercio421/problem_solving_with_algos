@@ -31,11 +31,11 @@ As soon as the digit appears in any one of the three places (conditional `or`), 
 
 ## Approach
 
-- 1. Create three hash maps of sets:
+1. Create three hash maps of sets:
   - 1.1 `rows` to track the digits in each row
   - 1.2 `cols` to track the digits in each col
   - 1.3 `squares` to track digits in each 3x3 sub-box, keyed by `(r // 3, c // 3)`
-- 2. Loop through ever cell in the board. You can do a `range(9)` since the board is guaranteed to be of size `3x3`
+2. Loop through ever cell in the board. You can do a `range(9)` since the board is guaranteed to be of size `3x3`
   - 2.1 Skip the cell if it contains `"."`
   - 2.2. Let `val` be the digit in the cell, which can be retrieved with `board[x][y]`
   - 2.3 If `val` is already in
@@ -44,12 +44,12 @@ As soon as the digit appears in any one of the three places (conditional `or`), 
     - `squares[(r // 3, c // 3)]` -> duplicate in the 3x3 box
     - We have a duplicate, return `False`
 
-- 3. Otherwise, add the digit to all the three sets:
+3. Otherwise, add the digit to all the three sets:
   - `rows[r]`
   - `cols[c]`
   - `squares[(r // 3, c // 3)]`
 
-- 4. If the whole board is scanned without a detected duplicate, return `True`.
+4. If the whole board is scanned without a detected duplicate, return `True`.
 
 ## Complexity
 
