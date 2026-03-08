@@ -10,9 +10,11 @@
 
 [Detailed steps of your solution strategy]
 
-- Step 1
-- Step 2
-- Step 3
+1. a
+    - b
+2. c
+    - d
+        - e
 
 ## Complexity
 
