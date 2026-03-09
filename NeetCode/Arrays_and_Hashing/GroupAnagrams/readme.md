@@ -1,0 +1,62 @@
+# Group Anagrams - HashMap and Arrays
+
+## Intuition
+
+- At first, it made sense to use a `sort()` method on the `strs` array, that way, the `strs[i]` are ordered together by alphabetical order. But sorting will cause the time complexity to be `log(n)`.
+- I then considered what if we find a way to use the a `HashMap`, so that the values of the keys will be the group of `strs[i]` that are anagrams of eachother
+
+## Algorithm
+
+- Use python's `defaultdict(list)`
+- For every string in `strs`, a `count` array will hold potential alphabet letters of `strs[i]`. Index 0 being `a`, index 25 being `z`.
+- For every character in the string, the value at the index of `ord(c) - ord("a")` will be increased by 1.
+- The `res` dictionary will hold the `count` array as a `tuple`, and the value of this key will be the string `s`.
+- The `res` keys holds the `count` array as tuples, with it's values being the actual word from `strs`. They are grouped together into an array. The `res.values()` is returned as a `list`
+
+## Implementation
+
+### Python
+
+```python
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        
+        res = defaultdict(list)
+
+        for s in strs:
+            count = [0] * 26
+
+            for c in s:
+                count[ord(c) - ord("a")] += 1
+            
+            res[tuple(count)].append(s)
+
+        return list(res.values())
+```
+
+### Java
+
+```java
+
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        
+        Map<String, List<String>> ans = new HashMap<>();
+
+        for (String s : strs) {
+            int[] count = new int[26];
+            for (char c : s.toCharArray()){
+                count[c -'a']++;
+            }
+
+            String key = Arrays.toString(count);
+            if (!ans.containsKey(key)){
+                ans.put(key, new ArrayList<>());
+            }
+
+            ans.get(key).add(s);
+            }
+            return new ArrayList<>(ans.values());
+    }
+}
+```
