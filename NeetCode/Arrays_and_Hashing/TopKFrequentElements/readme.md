@@ -1,5 +1,7 @@
 # Top K Frequent Elements - Dictionary, Array, and Bucket Sort
 
+Given an integer array `nums` and an integer `k`, return the `k` *most frequent elements*. You may return the answer in any order.
+
 ## Intuition
 
 - Dictionaries is a great data structure to use to measure/compare frequencies of arrays.
