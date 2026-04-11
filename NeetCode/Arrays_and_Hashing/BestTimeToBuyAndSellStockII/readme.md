@@ -6,26 +6,57 @@ On each day, you may decide to buy and/or sell the stock. However, you can buy i
 
 Find and return the `maximum` profit you can achieve.
 
-## Intuition
+## Greedy Approach
 
-[Explain your initial approach and thought process]
+### Intuition - Greedy
 
-## Approach
+It is best to capture every upward price movement. If the price of the stock goes up from day `i` to day `i + 1`, we can always "buy" on day `i` and "sell" on day `i + 1` to capture that profit.
 
-[Detailed steps of your solution strategy]
+### Approach - Greedy
 
-1. a
-    - b
-2. c
-    - d
-        - e
+1. Initialize a `profit` variable to `0`.
+2. Iterate through the prices from day `1` to the last day.
+3. If today's (`i`) price is higher than yesterday's price, add the difference to `profit`, as a running sum.
+4. Return `profit`
 
-## Complexity
+### Complexity
 
-- Time complexity: O(?)
-- Space complexity: O(?)
+- Time complexity: *O(n)*
+- Space complexity: *O(1)*
 
-## Code
+### Code - Greedy
+
+#### Java
+
+```java
+class Solution {
+    public int maxProfit(int[] prices) {
+        int profit = 0;
+
+        for (int i = 1; i < prices.length; i++){
+            if (prices[i] > prices[i - 1]){
+                profit += (prices[i] - prices[i-1]);
+            }
+        }
+        return profit;
+    }
+}
+```
+
+#### Python
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+
+        profit = 0
+
+        for i in range(1, len(prices)):
+            if prices[i] > prices[i - 1]:
+                profit += (prices[i] - prices[i - 1])
+            
+        return profit
+```
 
 ## Notes
 
