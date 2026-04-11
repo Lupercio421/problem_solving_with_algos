@@ -12,7 +12,7 @@ You must design an algorithm where `sumRegion` works on `O(1)` time complexity.
 
 Example:
 
-![2D matrix with a highlighted rectangle showing row1, col1 at upper left corner and row2, col2 at lower right corner, demonstrating the region for which sum is calculated](../images/rectangle_example.jpg)
+![2D matrix with a highlighted rectangle showing row1, col1 at upper left corner and row2, col2 at lower right corner, demonstrating the region for which sum is calculated](images/rectangle_example.jpg)
 
 ## Intuition
 
