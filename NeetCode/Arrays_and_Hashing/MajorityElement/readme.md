@@ -19,7 +19,7 @@ Majority element resonates with distinctness, so my intuiton was to use a dictio
 - Step 2: Initialize `n` to hold the value of `len(nums) // 2`.
 - Step 3: Populate the `ansMap` to hold the `num` as the key, and it's `count` in the array as the value.
 - Step 4: Use `ansMap.items()` to get the `num`, and `count` as values.
-  - Step 4.1: If `count` is greatern than `n`, return `num`.
+  - Step 4.1: If `count` is greater than `n`, return `num`.
 
 ### Complexity - Hash Map
 
