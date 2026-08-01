@@ -4,11 +4,11 @@ You are given an array of integers `nums`, sort the array in ascending order and
 
 You must solve the problem **without using any built-in** functions in `O(nlog(n))` time complexity and with the smallest space complexity possible.
 
-## Intuition
+## Intuition - Merge Sort
 
 Merge sort divides the array into two halves, recursively sorts each half, and then merges the sorted halves. The merge step combines two sorted arrays into one, by repetedly picking the smaller element from the front of each array. This divide and conquer approach guarantees O(n log n) time, regardless of input order.
 
-## Approach/Algorithm
+## Approach/Algorithm - Merge Sort
 
 1. Base case: if the subarray has one or zero elements, it is already sorted.
 2. Find the middle index and recursively sort the left half (`l` to `mid`) and right half (`mid + 1` to `r`).
@@ -18,14 +18,14 @@ Merge sort divides the array into two halves, recursively sorts each half, and t
     - Copy any remaining elements from either array.
 4. Return the sort array.
 
-## Complexity
+## Complexity - Merge Sort
 
 - Time complexity: O(nlogn)
 - Space complexity: O(n)
 
-## Code
+## Code - Merge Sort
 
-### Python
+### Python - Merge Sort
 
 ```python
 class Solution:
@@ -63,6 +63,55 @@ class Solution:
 
         mergeSort(nums, 0, len(nums) - 1)
         return nums
+```
+
+### Java - Merge Sort
+```java
+class Solution {
+    public int[] sortArray(int[] nums) {
+        mergeSort(nums, 0, nums.length - 1);
+        return nums;
+    }
+    public void mergeSort(int[] arr, int l, int r){
+            if (l >= r){
+                return;
+            } else {
+                int m = (l + r) / 2;
+                mergeSort(arr, l, m);
+                mergeSort(arr, m + 1, r);
+                merge(arr, l , m, r);
+            }
+        }
+    public void merge(int[] arr, int l, int m, int r){
+        ArrayList<Integer> temp = new ArrayList<>();
+        int i = l;
+        int j = m + 1;
+
+        while (i <= m && j <= r){
+            if (arr[i] <= arr[j]){
+                temp.add(arr[i]);
+                i++;
+            } else {
+                temp.add(arr[j]);
+                j++;
+            }
+        }
+
+        while (i <= m){
+            temp.add(arr[i]);
+            i++;
+        }
+
+        while (j <= r){
+            temp.add(arr[j]);
+            j++;
+        }
+
+        for(i = l; i <= r; i++){
+            arr[i] = temp.get(i - l);
+        }
+    }
+}
 ```
 
 ## Notes
