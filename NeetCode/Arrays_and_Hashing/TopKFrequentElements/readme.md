@@ -4,7 +4,7 @@ Given an integer array `nums` and an integer `k`, return the `k` *most frequent 
 
 ## Intuition
 
-- Dictionaries is a great data structure to use to measure/compare frequencies of arrays.
+- Dictionaries are a great data structure to use to measure/compare frequencies of arrays.
 - My first attempt was done with creating a `dict`, inserting the `num` in `nums` as the key, and the value being the count of the value in the `nums` array.
 - In this failed attempt, I tried to use the `Counter.most_common(int)` method to get the key and the count of the `dict` created. This was trouble as I had to work with `tuples` after this. This attempt did not progress further.
 - This new attempt made use of `Bucket Sort` by creating a `freq` array, with `len` of `nums`. This `freq` array will first hold empty `arrays`.
@@ -14,6 +14,34 @@ Given an integer array `nums` and an integer `k`, return the `k` *most frequent 
 - We will still build the `count` (`dict`) where the key is the `num` in `nums` and the value is the count this particular `num` appears in the `nums` array.
 - Python's `dict.items()` will be used to populate the `freq` array. `count.items` returns a `value` and a `count`. `freq[count]` will append the `value`. If `100` appears `1` time in `nums`, `freq[1] == 100`.
 - Once that is populated, we will reverse iterate the `freq` array, isolating the `value` in `freq[i]`, and appending that `value` to the `res` array. Once the `len(res)` reaches its desired `k` number of elements, return `res`
+
+### Count Frequencies
+
+```text
+Number	Frequency
+1	    3
+2	    2
+3	    1
+```
+
+### Buckets 
+
+```text
+bucket[0] = []
+bucket[1] = [3]
+bucket[2] = [2]
+bucket[3] = [1]
+bucket[4] = []
+bucket[5] = []
+bucket[6] = []
+```
+
+Scan backward, from frequency `6` down to `1`:
+
+```text
+frequency 3 -> add [1]  -> result = [1]
+frequency 2 -> add [2]  -> result = [1, 2]
+```
 
 ## Implementation
 
