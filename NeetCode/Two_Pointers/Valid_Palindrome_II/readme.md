@@ -1,6 +1,6 @@
 # Valid Palindrome II / Two Pointers
 
-You are given a string s, return true if the s can be a palindrome after deleting at most one character from it.
+You are given a string `s`, return true if the `s` can be a palindrome after deleting at most one character from it.
 
 ## Intuition
 

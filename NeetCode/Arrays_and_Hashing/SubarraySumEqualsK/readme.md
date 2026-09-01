@@ -14,7 +14,7 @@ Explanation: `[2]`, `[2,-1,1]`, `[-1,1,2]`, `[2]` are the subarrays whose sum is
 
 ## Intuition - Brute Force
 
-For each starting index, extend the subbary element by element, maintaining a running sum. Whenever the sum equals `k`, we count it.
+For each starting index, extend the subarray element by element, maintaining a running sum. Whenever the sum equals `k`, we count it.
 
 ## Approach - Brute Force
 
