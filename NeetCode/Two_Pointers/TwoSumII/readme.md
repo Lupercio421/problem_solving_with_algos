@@ -56,6 +56,21 @@ class Solution {
 ```
 </details>
 
+## Approach - HashMap
+
+1. Create an empty hash map to `mp` that maps numbers to their 1-indexed positions.
+2. Loop through the array with index `i` from `0` to `n-1`:
+    - Compute the complement of numbers[i]: `tmp = target - numbers[i]`
+    - If `tmp` exists in `mp`, return `[mp[tmp], i+1]`
+    - Otherwise, store the current number in the map:
+        - `mp[numbers[i]] = i + 1`
+3. If no pair is found, return an empty list.
+
+## Complexity
+
+- Time complexity: O(n)
+- Space complexity: O(n)
+
 ### Java - HashMap
 <details
 
@@ -85,4 +100,4 @@ class Solution {
 
 ## Notes
 
-[Any additional notes or alternative approaches]
+- For the HashMap approach, the second element is `1-indexed`, so at whatever `i` index the iteration is currently in, `i + 1` will return the element of numbers that provides the solution.
