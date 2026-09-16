@@ -24,7 +24,7 @@ We can rearrange this equation to `num[j] = target - num[i]`. We can label `num[
 2. Iterate through the array using index `i` and compute the complement of the current element, which is `target - nums[i]`.
 3. Check if the `diff` exists in the hash map.
 4. If it does, return the indices of the current element and its compliment.
-5. If no such pari is found, return empty array.
+5. If no such pair is found, return empty array.
 
 
 ## Complexity
@@ -35,6 +35,10 @@ We can rearrange this equation to `num[j] = target - num[i]`. We can label `num[
 ## Code
 
 ### Python
+
+<details>
+
+<summary>Python - Map attempt</summary>
 
 ```python
 from typing import List
@@ -55,8 +59,13 @@ targetVar = 7
 solution = Solution()
 solution.twoSum(nums = numsList, target=targetVar)
 ```
+</details>
 
 ### Java
+
+<details>
+
+<summary>Java HashMap - attempt 1</summary>
 
 ```java
 class Solution {
@@ -73,5 +82,29 @@ class Solution {
     }
 }
 ```
+</details>
+
+<details>
+
+<summary>Java Hashmap - attempt 2</summary>
+
+```java
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            // target = a1 + nums[i]
+            int a1 = target - nums[i];
+            if (!map.containsKey(a1)) {
+                map.put(nums[i], i); //put every num in nums into the hashmap
+            } else {
+                return new int[] {map.get(a1), i}; //if a1 is in the hashmap, map.get(a1) will return the index where this a1 was computed, and i is the current index of this iteration that together with map.get(a1), will sum to the target.
+            }
+        }
+        return new int[] {};
+    }
+}
+```
+</details>
 
 ## Notes
