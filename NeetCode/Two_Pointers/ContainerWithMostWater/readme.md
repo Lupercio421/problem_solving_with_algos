@@ -14,21 +14,32 @@ Output: 36
 
 Explanation: The bars at indices 1 and 7 have heights 7 and 6. The container has width 7 - 1 = 6 and height min(7, 6) = 6, so it can store 6 * 6 = 36 units of water. This is the maximum possible area.
 
-## Intuition
+## Intuition - Two Pointers
 
-[Explain your initial approach and thought process]
+Using two pointers lets us effeciently search for the maximum area without checking every pair.
 
-## Approach
+We start with the widest container (left at start, right at end).
 
-[Detailed steps of your solution strategy]
+The height of this widest container is limited by the shorter line / element. So to potentially increase the area, we must move the pointer at the shorter line inward. Moving the taller line never helps because it keeps the height the same but reduces the width.
 
-1. a
-    - b
-2. c
-    - d
-        - e
+By always moving the shorter side, we explore all meaningful possibilities.
 
-## Complexity
+## Approach - Two Pointers
+
+1. Initialize two pointers:
+    - `l = 0`
+    - `r = len(heights) - 1`
+2. Set `res = 0` to store the maximum area.
+3. While `l < r`:
+    - Computer the area, where `area = width * height`
+        - `area = (r - l) * min(heights[l], heights[r])`
+    - Update the `res` with the maximum area calculated so far, comparing the current `area` calculation, and the method level `res` variable.
+    - Move the pointer at the shorter height:
+        - If `heights[l] < heights[r]`, move `l` right `(++)`.
+        - Else, move `r` left `(--)`
+4. Return the `res` after the pointers meet . Ie, `l` is no longer less than `r`. 
+
+## Complexity - Two Pointers
 
 - Time complexity: O(n)
 - Space complexity: O(1)
@@ -37,7 +48,7 @@ Explanation: The bars at indices 1 and 7 have heights 7 and 6. The container has
 
 <details>
 
-<summary>Java attempt 1</summary>
+<summary>Java - Two Pointers</summary>
 
 ```java
 class Solution {
@@ -56,7 +67,7 @@ class Solution {
             int width = r - l;
             int area = width * Math.min(heights[l], heights[r]);
             runningMax = Math.max(runningMax, area);
-            if (heights[l] < heights[r]) { //if the current value of heights[l] is less than heights[r]- shorter height - increment l
+            if (heights[l] < heights[r]) { //if the current value of heights[l] is less than heights[r] - shorter height - increment l
                 l++;
             } else {
                 r--;
@@ -65,6 +76,31 @@ class Solution {
         return runningMax;
     }
 }
+```
+</details>
+
+<details>
+
+<summary>Python - Two Pointers</summary>
+
+```python
+class Solution:
+    def maxArea(self, heights: List[int]) -> int:
+        l = 0
+        r = len(heights) - 1
+        runningMax = 0
+
+        while l < r:
+            width = r - l
+            area = width * min(heights[l], heights[r])
+            runningMax = max(runningMax, area)
+
+            if (heights[l] < heights[r]):
+                l += 1
+            else:
+                r -= 1
+        
+        return runningMax
 ```
 </details>
 
