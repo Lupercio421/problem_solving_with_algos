@@ -207,5 +207,93 @@ class MyStack:
 
 </details>
 
-## Intuition - Queues of Queues
+## Intuition - Queue of Queues
+
+This approach takes a different perspective by nesting structures. Instead of rearranging elements, we create a new queue (or node) for each push that contains the value and a reference to the previous structure.
+
+Each push wraps the current state inside a new container, with the new value at the front. This creates a chain where the most recent element is always immediately accessible.
+
+In practice, this behaves like building a linked list where each node holds a value and points to the rest of the stack.
+
+## Approach - Queue of Queues
+
+1. Initialize `q` as `null` (empty stack).
+2. `push(x)`: Create a new queue/node containing `x` as the first element and the old `q` as the second element. Update `q` to point to this new structure.
+3. `pop()`: Extract the first element (the value), update `q` to point to the second element (the rest of the stack), and return the value.
+4. `top()`: Return the first element of `q` without modifying anything.
+5. `empty()`: Return `true` if `q` is `null`.
+
+## Code - Queue of Queues.
+
+<details>
+
+<summary>Java - Queue of Queues/summary>
+
+```java
+class MyStack {
+
+    private Queue<Object> q;
+
+    public MyStack() {
+        q = null;
+    }
+    
+    public void push(int x) {
+        Queue<Object> newQueue = new LinkedList<>();
+        newQueue.add(x);
+        newQueue.add(q);
+        q = newQueue;
+    }
+    
+    public int pop() {
+        if (q == null){
+            return -1;
+        }
+
+        int top = (int) q.poll();
+        q = (Queue<Object>) q.poll();
+        return top;
+    }
+    
+    public int top() {
+        if (q == null) {
+            return -1;
+        }
+
+        return (int) q.peek();
+    }
+    
+    public boolean empty() {
+        return q == null;
+    }
+}
+```
+</details>
+
+<details>
+
+<summary>Java attempt 1</summary>
+
+```python
+class MyStack:
+
+    def __init__(self):
+        self.q = None
+
+    def push(self, x: int) -> None:
+        self.q = deque([x, self.q])
+
+    def pop(self) -> int:
+        top = self.q.popleft()
+        self.q = self.q.popleft()
+        return top
+
+    def top(self) -> int:
+        return self.q[0]
+
+    def empty(self) -> bool:
+        return not self.q
+```
+</details>
+
 
