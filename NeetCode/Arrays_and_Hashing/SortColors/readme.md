@@ -102,7 +102,7 @@ The D.N.F algorithm partitions the array into three sections in a single pass. W
 
 ### Code (Three Pointers)
 
-#### Python
+#### Python (Three Pointers)
 
 ```python
 class Solution:
@@ -129,7 +129,7 @@ class Solution:
             i += 1
 ```
 
-#### Java
+#### Java (Three Pointers)
 
 ```java
 public class Solution {

@@ -23,6 +23,18 @@
 
 ## Code
 
+<details>
+
+<summary>Java attempt 1</summary>
+
+```java
+class Solution {
+...
+}
+```
+</details>
+
+
 ## Notes
 
 [Any additional notes or alternative approaches]
