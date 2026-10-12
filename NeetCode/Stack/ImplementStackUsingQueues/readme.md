@@ -15,7 +15,7 @@ Implement the `MyStack` class:
 
 - Depending on your language, the queue may not be supported natively. You may simulate a queue using a list or deque (double-ended queue) as long as you use only a queue's standard operations.
 
-```
+```text
 Example 1:
 
 Input: ["MyStack", "push", "push", "top", "pop", "empty"]
@@ -57,7 +57,7 @@ After rearranging, we swap the two queues so the main queue always has elements 
     - O(1) time for each *pop()* function call.
 - Space complexity: O(n)
 
-## Code
+## Code - Using Two Queues
 
 <details>
 
@@ -251,7 +251,7 @@ class MyStack {
         }
 
         int top = (int) q.poll();
-        q = (Queue<Object>) q.poll();
+        q = (Queue<Object>) q.poll(); // the old stack is buried inside the current one, and popping/polling digs it back out
         return top;
     }
     
@@ -272,7 +272,7 @@ class MyStack {
 
 <details>
 
-<summary>Java attempt 1</summary>
+<summary>Python - Queue of Queues</summary>
 
 ```python
 class MyStack:
@@ -285,7 +285,7 @@ class MyStack:
 
     def pop(self) -> int:
         top = self.q.popleft()
-        self.q = self.q.popleft()
+        self.q = self.q.popleft() #the old stack is buried inside the current one, and popping/polling digs it back out
         return top
 
     def top(self) -> int:
@@ -295,5 +295,3 @@ class MyStack:
         return not self.q
 ```
 </details>
-
-
