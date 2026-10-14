@@ -40,8 +40,6 @@ Depending on the `operation`, we will be popping, pushing, or storing variables 
 
 ## Approach
 
-[Detailed steps of your solution strategy]
-
 1. Initialize an empty stack to store valid scores
 2. For each operation:
     - If it's `+`, add the sum of the top two elements to the stack.
@@ -90,6 +88,7 @@ class Solution {
 ```
 </details>
 
+<details>
 <summary>Java - Stack 2</summary>
 
 ```java
