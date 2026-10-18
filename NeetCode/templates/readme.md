@@ -42,6 +42,7 @@ class Solution {
 class Solution: 
 ```
 </details>
+
 ## Notes
 
 [Any additional notes or alternative approaches]
