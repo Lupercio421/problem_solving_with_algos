@@ -25,7 +25,7 @@
 
 <details>
 
-<summary>Java attempt 1</summary>
+<summary>Java - attempt 1</summary>
 
 ```java
 class Solution {
@@ -34,7 +34,14 @@ class Solution {
 ```
 </details>
 
+<details>
 
+<summary>Python - attempt 1</summary>
+
+```python
+class Solution: 
+```
+</details>
 ## Notes
 
 [Any additional notes or alternative approaches]
