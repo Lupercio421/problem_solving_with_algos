@@ -87,6 +87,80 @@ class Solution:
 ```
 </details>
 
+## Intuition - Without Stack
+
+We can simulate the stack behavior using the input array itself. We maintain a pointer `j` that tracks the "top" of our virtual stack within the array. When collisions occur, we decrement `j` (like popping). Surviving asteroids are written to position `j + 1`. This gives us O(1) extra space while maintaining the same logic.
+
+## Approach - Without Stack
+
+1. Use pointer `j = -1` to represent an empty stack.
+2. For each asteroid, handle collisions by comparing with asteroids[j] when both are in opposite directions.
+3. If the current asteroid survives, increment `j` and store it at `asteroids[j]`.
+4. If destroyed, skip storing it.
+5. Return the subarray from index `0` to `j` (inclusive).
+
+<details>
+
+<summary>Java - Without Stack</summary>
+
+```java
+class Solution {
+    public int[] asteroidCollision(int[] asteroids) {
+        int n = asteroids.length;
+        int j = -1;
+
+        for (int a : asteroids) {
+            while (j >= 0 && asteroids[j] > 0 && a < 0) {
+                if (asteroids[j] + a > 0) {
+                    a = 0;
+                    break;
+                } else if (asteroids[j] + a == 0) {
+                    j--;
+                    a = 0;
+                    break;
+                } else {
+                    j--;
+                }
+            }
+            if (a != 0) {
+                asteroids[++j] = a;
+            }
+        }
+        return Arrays.copyOfRange(asteroids, 0, j + 1);
+    }
+}
+```
+</details>
+
+<details>
+
+<summary>Python - Without Stack</summary>
+
+```python
+class Solution:
+    def asteroidCollision(self, asteroids: List[int]) -> List[int]:
+        n = len(asteroids)
+        j = -1
+
+        for a in asteroids:
+            while j >= 0 and asteroids[j] > 0 and a < 0:
+                if asteroids[j] > abs(a):
+                    a = 0
+                    break
+                elif asteroids[j] == abs(a):
+                    j -= 1
+                    a = 0
+                    break
+                else:
+                    j -= 1
+            if a:
+                j += 1
+                asteroids[j] = a
+
+        return asteroids[:j + 1]
+```
+</details>
+
 ## Notes
 
 [Any additional notes or alternative approaches]
