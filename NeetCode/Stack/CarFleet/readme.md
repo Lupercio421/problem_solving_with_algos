@@ -26,7 +26,8 @@ The cars starting at 5 (speed 1) and 3 (speed 3) become a fleet, meeting each ot
 
 ## Intuition
 
-[Explain your initial approach and thought process]
+![Car fleet positions and merging](IMG_0202.jpg)
+![Car fleet arrival-time calculations](IMG_0203.jpg)
 
 ## Approach
 
@@ -71,6 +72,51 @@ public class Solution {
         return stack.size();
     }
 }
+```
+</details>
+
+<details>
+
+<summary>Java - Monotonic stack With Car class</summary>
+
+```java
+class Solution {
+    public int carFleet(int target, int[] position, int[] speed) {
+        int n = position.length;
+        Car[] cars = new Car[n];
+        for (int i = 0; i < position.length; i++) {
+            cars[i] = new Car(position[i], speed[i]);
+        }
+        Arrays.sort(cars);
+        Stack<Double> stack = new Stack<>();
+        for (Car c : cars) {
+            stack.push((double) (target - c.pos) / c.speed);
+            //you need at least two elements in the stack to compare a car with the car in front of it.
+            //if the car behind takes less time or equal time to reach the target than the car ahead, then the car will catch up. It becomes apart of the fleet, not an independent fleet
+            if (stack.size() >= 2 && stack.peek() <= stack.get(stack.size() - 2)) {
+                stack.pop();
+            }
+        }
+        return stack.size();
+    }
+}
+
+class Car implements Comparable<Car> {
+    int pos;
+    int speed;
+
+    public Car(int pos, int speed) {
+        this.pos = pos;
+        this.speed = speed;
+    }
+
+    @Override
+    public int compareTo(Car other){
+        // Reverse order (other.pos vs this.pos) for descending sort
+        return Integer.compare(other.pos, this.pos);
+    }
+}
+
 ```
 </details>
 
